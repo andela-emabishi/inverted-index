@@ -2,9 +2,9 @@
 function Index(){
 	this.createIndex = function(fileName){
 		var json_file = require("../" + fileName + ".json");
-		    return json_file;
-	}
-
+		    //console.log(json_file);
+	
+/*
 	this.getIndex = function(file){
 		var arr = [];
 		for(var i = 0; i < file.length; i++){
@@ -17,33 +17,34 @@ function Index(){
 			}
 		}
 	}
-}
+*/
 
+	this.searchIndex = function(terms){
+	var results = [];
+
+	json_file.map((book, index) => {
+		const wordToSearch = new RegExp(terms, 'gi');
+		if (wordToSearch.test(book.title) || wordToSearch.test(book.text)) {
+			results.push(index); 
+			//console.log(book);
+		}
+	});
+
+	if(results.length > 0) {
+		console.log(terms + " has been found in the following documents" + " " + results)
+	} else{
+		console.log("No match has been made")
+	}
+	};
+};
+};
 var index_ = new Index();
-index_.results = index_.createIndex('books');
-index_.getIndex(index_.results);
+index_.createIndex('books');
+//index_.getIndex(index_.results);
+index_.searchIndex('lord');
 
 
 
 
-//Loop through JSON array, getting each document
 
-
-
-//Make string of all keys in each object in JSON array and lowercase string
-
-
-
-//Remove all stop words from lowercase string
-
-
-
-//Loop though string while splitting on space and Create index of words in string
-//({term:[1,3],[2,6]},{term2:[1,0],[2,0],[3,3]}})
-//See about outputting pretty table
-
-
-//For function-search (terms) filter index for search terms
-//Return object ({term:[1,3],[2,6]},{term2:[1,0],[2,0],[3,3]}})
-//Make it clearer---- term + "in Doc" + varname.key[0][0] + "appears" + varname.key[0][1] + "times"
 
