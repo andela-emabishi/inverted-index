@@ -3,46 +3,54 @@
 function Index(){
 	this.createIndex = function(fileName){
 		var jsonFile = require("../" + fileName + ".json");
-		    //console.log(jsonFile);
 	
-	this.getIndex = function(){
-		jsonFile.map((book, docIndex) => {
-	var wordsArray = [];
-	var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
-		return string_.length !== 0;});
-	books.map((words) => {
-		var IndexObject = (words + ":" + " " + docIndex);
-		wordsArray.push(IndexObject)
+		this.getIndex = function(){
+			jsonFile.map((book, docIndex) => {
+				var wordsArray = [];
 
-			});
-		console.log(wordsArray);
-		})
-	}
+				var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
+					return string_.length !== 0;
+				});
 
-	this.searchIndex = function(terms){
-	var results = [];
+				books.map((words) => {
+					var IndexObject = (words + ":" + " " + docIndex);
+					wordsArray.push(IndexObject)
+				});
 
-	jsonFile.map((book, index) => {
-		const wordToSearch = new RegExp(terms, 'gi');
-		var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
-		return string_.length != 0;});
-		if (wordToSearch.test(books) || wordToSearch.test(books)) {
-			results.push(index); 
+				console.log(wordsArray);
+			})
 		}
-	});
 
-	if(results.length > 0) {
-		console.log(terms + " has been found in the following documents:" + " " + results)
-	} else{
-		console.log("No match has been made")
-	}
+		this.searchIndex = function(terms){
+			var results = [];
+
+			//var getIndexResult = this.getIndex();
+			//console.log(getIndexResult);
+
+			jsonFile.map((book, index) => {
+				const wordToSearch = new RegExp(terms, 'gi');
+			var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
+				return string_.length !== 0;
+				});
+			
+				if (wordToSearch.test(books)) {
+					results.push(index); 
+				}
+			});
+
+			if(results.length > 0) {
+				console.log(terms + " has been found in the following documents:" + " " + results)
+			}
+		 	else{
+				console.log("No match has been made")
+			}
+		};
 	};
-};
 }
 
 var index = new Index();
 index.createIndex('books');
-index.searchIndex('title');
+index.searchIndex('Rudyard');
 index.getIndex();
 
 
