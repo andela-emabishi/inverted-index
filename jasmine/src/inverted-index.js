@@ -3,11 +3,10 @@
 function Index(){
 	this.createIndex = function(fileName){
 		var jsonFile = require("../" + fileName + ".json");
-	
-		this.getIndex = function(){
-			jsonFile.map((book, docIndex) => {
+				var indexArray;
 				var wordsArray = [];
 
+		jsonFile.map((book, docIndex) => {
 				var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
 					return string_.length !== 0;
 				});
@@ -17,29 +16,28 @@ function Index(){
 					wordsArray.push(IndexObject)
 				});
 
-				console.log(wordsArray);
+				this.indexArray =  wordsArray;
+				return wordsArray;
 			})
+	
+	
+		this.getIndex = function(){
+			console.log(this.indexArray);			
 		}
 
 		this.searchIndex = function(terms){
 			var results = [];
 
-			//var getIndexResult = this.getIndex();
-			//console.log(getIndexResult);
-
-			jsonFile.map((book, index) => {
+			this.indexArray.map((element) => {
 				const wordToSearch = new RegExp(terms, 'gi');
-			var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
-				return string_.length !== 0;
-				});
 			
-				if (wordToSearch.test(books)) {
-					results.push(index); 
+				if (wordToSearch.test(element)) {
+					results.push(element); 
 				}
 			});
 
 			if(results.length > 0) {
-				console.log(terms + " has been found in the following documents:" + " " + results)
+				console.log(results)
 			}
 		 	else{
 				console.log("No match has been made")
@@ -50,11 +48,5 @@ function Index(){
 
 var index = new Index();
 index.createIndex('books');
-index.searchIndex('Rudyard');
 index.getIndex();
-
-
-
-
-
-
+index.searchIndex('alice');

@@ -28,7 +28,7 @@ describe("Populate index", function(){
 		expect(getIndex()).not.toBe(null);
 	});
 
-	it("verifies the index maps keys to the correct objects in the JSON ", function(){
+	it("verifies the index maps words to the correct objects in the JSON ", function(){
 		expect()
 	})
 });
