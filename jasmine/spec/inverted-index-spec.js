@@ -12,7 +12,7 @@ describe("Index", function(){//for index
 	beforeEach(function () {
 		index.books = [
 			{
-				test: 'test'
+				testing: 'test'
 			}
 		];
 		index.createIndex();
@@ -28,13 +28,13 @@ describe("Index", function(){//for index
 		})
 
 		it("verifies the index maps words to the correct objects in the JSON ", function (){
-			expect(index.getIndex()).toEqual(['test : 0 : 0','test : 0 : 1']);
+			expect(index.getIndex()).toEqual(['testing : 0 : 0','test : 0 : 1']);
 		});
 	});
 
 	describe("Search Index", function(){
 		it("verifies that searching the Index returns the correct results", function () {
-			expect(index.searchIndex('test')).toEqual(['test : 0 : 0','test : 0 : 1']);
+			expect(index.searchIndex('testing')).toEqual(['testing : 0 : 0']);
 		});
 
 		it("verifies search index returns correct position", function () {
