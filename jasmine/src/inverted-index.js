@@ -1,52 +1,50 @@
-"use strict";
+'use strict';
+// import the file reader
 
-function Index(){
-	this.createIndex = function(fileName){
-		var jsonFile = require("../" + fileName + ".json");
-				var indexArray;
-				var wordsArray = [];
+const fs = require('fs');
+class Index {
 
-		jsonFile.map((book, docIndex) => {
-				var books = JSON.stringify(book).toLowerCase().split(/\W/g).filter(function (string_){
-					return string_.length !== 0;
-				});
+  // method to read the json file
+  readJSONFromFile(filePath) {
+    this.books = JSON.parse(fs.readFileSync(filePath));
+  }
 
-				books.map((words) => {
-					var IndexObject = (words + ":" + " " + docIndex);
-					wordsArray.push(IndexObject)
-				});
+  createIndex() {
+    this.indexArray = [];
+    this.books.forEach((book, docIndex) => {
+      var bookObjectString = JSON.stringify(book).toLowerCase().replace(/\W/g, ' ').replace(/\s+/g, ' ').trim();
+      // console.log('++' + bookObjectString + '++');
+      this.indexArray = this.indexArray.concat(bookObjectString.split(' ').map((word, wordIndex) => {
+        return (word + ' : ' + docIndex + ' : ' + wordIndex);
+      }));
 
-				this.indexArray =  wordsArray;
-				return wordsArray;
-			})
-	
-	
-		this.getIndex = function(){
-			console.log(this.indexArray);			
-		}
+    });
+  }
 
-		this.searchIndex = function(terms){
-			var results = [];
+  getIndex() {
+    return this.indexArray;
+  }
 
-			this.indexArray.map((element) => {
-				const wordToSearch = new RegExp(terms, 'gi');
-			
-				if (wordToSearch.test(element)) {
-					results.push(element); 
-				}
-			});
+  searchIndex(term) {
+    var results = this.indexArray.filter(wordStatistics => {
+      const wordToSearch = new RegExp(term, 'gi');
+      // if a true boolean is returned, wordStatistics is added to results array
+      return wordToSearch.test(wordStatistics);
+    });
 
-			if(results.length > 0) {
-				console.log(results)
-			}
-		 	else{
-				console.log("No match has been made")
-			}
-		};
-	};
+    if (results.length === 0) {
+      return 'No match has been made';
+    }
+    return results;
+  }
 }
 
-var index = new Index();
-index.createIndex('books');
-index.getIndex();
-index.searchIndex('alice');
+// var index = new Index();
+// index.readJSONFromFile('../books.json');
+// index.createIndex();
+// console.log(index.getIndex());
+// console.log(index.getIndex().length);
+// console.log(index.searchIndex('and'));
+
+module.exports = Index;
+
