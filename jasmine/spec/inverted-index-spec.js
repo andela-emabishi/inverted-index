@@ -4,7 +4,6 @@ var index = new Index();
 describe("Index", function(){//for index
 	describe("Read book data", function(){
 		it("should read the JSON file and assert its not empty", function(){
-        //console.log("in test ", data);
         	index.readJSONFromFile(__dirname + '/../books.json')
         	expect(index.books.length).toBeGreaterThan(0);
 		});
@@ -23,6 +22,10 @@ describe("Index", function(){//for index
 		it("checks if index has been created once the JSON file has been read", function(){
 			expect(Array.isArray(index.getIndex())).toBeTruthy();
 		});
+		it("checks if the index array is empty", function(){
+			index.createIndex();
+			expect(index.indexArray.length).not.toBe(0)
+		})
 
 		it("verifies the index maps words to the correct objects in the JSON ", function (){
 			expect(index.getIndex()).toEqual(['test : 0 : 0','test : 0 : 1']);
