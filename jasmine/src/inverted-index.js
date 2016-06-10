@@ -35,11 +35,13 @@ class Index {
     });
   }
 
+  //Method to return inverted-index
   getIndex() {
 
     return this.indexArray;
   }
 
+  //Method to search the index for a term
   searchIndex(term) {
 
     var results = this.indexArray.filter(wordStatistics => {
@@ -50,7 +52,7 @@ class Index {
     });
 
     if (results.length === 0) {
-      
+
       return 'No match has been made';
     }
     return results;
