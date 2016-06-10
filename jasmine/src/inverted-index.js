@@ -36,17 +36,21 @@ class Index {
   }
 
   getIndex() {
+
     return this.indexArray;
   }
 
   searchIndex(term) {
+
     var results = this.indexArray.filter(wordStatistics => {
+
       const wordToSearch = new RegExp(term, 'gi');
       // if a true boolean is returned, wordStatistics is added to results array
       return wordToSearch.test(wordStatistics);
     });
 
     if (results.length === 0) {
+      
       return 'No match has been made';
     }
     return results;
