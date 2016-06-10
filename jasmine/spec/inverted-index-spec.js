@@ -1,34 +1,31 @@
 var Index = require('../src/inverted-index');
 var index = new Index();
 
-describe("Index", function(){//for index
-	describe("Read book data", function(){
-		it("should read the JSON file and assert its not empty", function(){
-        	index.readJSONFromFile(__dirname + '/../books.json')
-        	expect(index.books.length).toBeGreaterThan(0);
-		});
-	});
 
 	beforeEach(function () {
-		index.books = [
-			{
-				testing: 'test'
-			}
-		];
-		index.createIndex();
+		index.createIndex(__dirname + '/test.json');
+	});
+
+describe("Index", function(){
+		//for index
+	describe("Read book data", function(){
+		it("should read the JSON file and assert its not empty", function(){
+        	expect(index.books.length).toBeGreaterThan(0);  
+		});
 	});
 
 	describe("Populate index", function(){
 		it("checks if index has been created once the JSON file has been read", function(){
-			expect(Array.isArray(index.getIndex())).toBeTruthy();
+			
+			expect(Array.isArray(index.indexArray)).toBeTruthy();
 		});
+
 		it("checks if the index array is empty", function(){
-			index.createIndex();
 			expect(index.indexArray.length).not.toBe(0)
 		})
 
 		it("verifies the index maps words to the correct objects in the JSON ", function (){
-			expect(index.getIndex()).toEqual(['testing : 0 : 0','test : 0 : 1']);
+			expect(index.indexArray).toEqual(['testing : 0 : 0','test : 0 : 1']);
 		});
 	});
 
