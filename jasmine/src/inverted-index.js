@@ -1,19 +1,30 @@
-'use strict';
-// import the file reader
+/**
+* Elizabeth Mabishi
+* Andela Javascript Checkpoint 1: Inverted Index
+* Date: 10th June 2016
+* version 1.1
+*/
 
+
+'use strict';
+
+// import the file reader
 const fs = require('fs');
+
+//ES6 Class declaration
 class Index {
 
-  // method to read the json file
-  readJSONFromFile(filePath) {
-    this.books = JSON.parse(fs.readFileSync(filePath));
-  }
+  //Method to create an Index 
+  createIndex(filePath) {
 
-  createIndex() {
+    this.books = JSON.parse( fs.readFileSync( filePath ));
+
     this.indexArray = [];
-    this.books.forEach((book, docIndex) => {
+
+    this.books.forEach (( book, docIndex ) => {
+
       var bookObjectString = JSON.stringify(book).toLowerCase().replace(/\W/g, ' ').replace(/\s+/g, ' ').trim();
-      // console.log('++' + bookObjectString + '++');
+
       this.indexArray = this.indexArray.concat(bookObjectString.split(' ').map((word, wordIndex) => {
         return (word + ' : ' + docIndex + ' : ' + wordIndex);
       }));
@@ -39,12 +50,12 @@ class Index {
   }
 }
 
-// var index = new Index();
-// index.readJSONFromFile('../books.json');
-// index.createIndex();
-// console.log(index.getIndex());
-// console.log(index.getIndex().length);
-// console.log(index.searchIndex('and'));
+var index = new Index();
+//index.readJSONFromFile();
+index.createIndex('../books.json');
+console.log(index.getIndex());
+console.log(index.getIndex().length);
+console.log(index.searchIndex('and'));
 
 module.exports = Index;
 
