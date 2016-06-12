@@ -8,24 +8,30 @@
 
 'use strict';
 
-// import the file reader
+// Import the file reader
 const fs = require('fs');
 
 //ES6 Class declaration
 class Index {
 
-  //Method to create an Index
+  // Method to create an Index
   createIndex(filePath) {
 
     this.books = JSON.parse(fs.readFileSync(filePath));
-    console.log(this.books.length)
 
     this.indexArray = [];
 
+
+    // For each document, turn to string, lowercase, remove special characters
+    // and trim beginning of line spaces.
+
+    // Map each document to its position in the document.
     this.books.forEach (( book, docIndex ) => {
 
       var bookObjectString = JSON.stringify(book).toLowerCase().replace(/\W/g, ' ').replace(/\s+/g, ' ').trim();
 
+      // Concatenate document and split at space to form individual words.
+      // Map each word to its position in the document
       this.indexArray = this.indexArray.concat(bookObjectString.split(' ').map((word, wordIndex) => {
 
         return (word + ' : ' + docIndex + ' : ' + wordIndex);
@@ -35,17 +41,19 @@ class Index {
     });
   }
 
-  //Method to return inverted-index
+  // Method to return inverted-index from create index method
   getIndex() {
 
     return this.indexArray;
   }
 
-  //Method to search the index for a term
+  // Method to search the index for a term
   searchIndex(term) {
 
+    // Filter the index for a search term
     var results = this.indexArray.filter(wordStatistics => {
 
+      // Ignore case through a Regular Expression
       const wordToSearch = new RegExp(term, 'gi');
       
       // if a true boolean is returned, wordStatistics is added to results array
