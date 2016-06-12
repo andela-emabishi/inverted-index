@@ -47,6 +47,7 @@ This Method takes a `term` as an argument and filters the index for the term, re
 `No match has been made`
 
 ### Dependencies
--[node.js 6.2.1]: (https://nodejs.org/en/)
-- To run the tests install [jasmine node]: (https://www.npmjs.com/package/jasmine-node)To install the latest official version, use NPM with the command: `npm install jasmine-node -g` then `cd` into the jasmine folder of the inverted-index repository and run the command `jasmine-node spec/`
+*[node.js 6.2.1] (https://nodejs.org/en/)
+
+*To run the tests install [jasmine node] (https://www.npmjs.com/package/jasmine-node): To install the latest official version, use the Node Package Manager with the command: `npm install jasmine-node -g` then `cd` into the jasmine folder of the inverted-index repository and run the command `jasmine-node spec/` in your terminal program.
 
