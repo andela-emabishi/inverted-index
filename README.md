@@ -34,13 +34,13 @@ This Method takes a `term` as an argument and filters the index for the term, re
   `snipped .......]`
   
 `console.log(index.searchIndex('and'));`
-** The result of this would be:**
+*The result of this would be:*
 `[ 'wonderland : 0 : 3', 'and : 0 : 11', 'and : 1 : 20' ]`
 
 `console.log(index.searchIndex('rudyard'));`
-** The result of this would be:**
+*The result of this would be:*
 `[ 'rudyard : 2 : 1' ]`
 
 `console.log(index.searchIndex('astronomy'));`
-** The result of this would be;**
+*The result of this would be;*
 `No match has been made`
