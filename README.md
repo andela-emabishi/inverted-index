@@ -42,5 +42,5 @@ This Method takes a `term` as an argument and filters the index for the term, re
 `[ 'rudyard : 2 : 1' ]`
 
 `console.log(index.searchIndex('astronomy'));`
-*The result of this would be;*
+*The result of this would be:*
 `No match has been made`
