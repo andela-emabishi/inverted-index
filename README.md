@@ -17,7 +17,7 @@ This Method takes a `term` as an argument and filters the index for the term, re
 `['term : documentId : wordPositionID']`
 
 ### Functionality
-#### Create an instance of the Index Class, for example:
+#### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
 `var index = new Index();`
 `index.createIndex('../books.json');`
 `console.log(index.getIndex());`
@@ -45,3 +45,8 @@ This Method takes a `term` as an argument and filters the index for the term, re
 `console.log(index.searchIndex('astronomy'));`
 *The result of this would be:*
 `No match has been made`
+
+### Dependencies
+-[node.js 6.2.1]: (https://nodejs.org/en/)
+- To run the tests install [jasmine node]: (https://www.npmjs.com/package/jasmine-node)To install the latest official version, use NPM with the command: `npm install jasmine-node -g` then `cd` into the jasmine folder of the inverted-index repository and run the command `jasmine-node spec/`
+
