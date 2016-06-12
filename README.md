@@ -23,6 +23,7 @@ This Method takes a `term` as an argument and filters the index for the term, re
 `console.log(index.getIndex());`
 
 **For the books.JSON test object, the result would be:**
+
 `[ 'title : 0 : 0',`
   `'alice : 0 : 1',`
   `'in : 0 : 2',`
