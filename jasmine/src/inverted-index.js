@@ -9,8 +9,9 @@ class Index {
     // Initialise Object to store the inverted-index
     this.indexObj = {};
     
-    // Fetch the document 
-    // Resolve the promise and store the data in a variable, 'finallySomeData'
+    /* Fetch the document 
+    * Resolve the promise and store the data in a variable, 'finallySomeData'
+    */
     return fetch(filePath).then(function(response) {
         return response.json();
 
@@ -28,8 +29,9 @@ class Index {
       // Iterate through the data obtaining each book's position in the document.
       self.books.forEach((book, docIndex) => {
         
-         // For each document, turn to string, lowercase, remove special characters
-         // and trim beginning of line spaces.
+         /* For each document, turn to string, lowercase, remove special characters
+          * and trim beginning of line spaces.
+          */
         var bookObjectString = JSON.stringify(book)
         .toLowerCase().replace(/\W/g, ' ')
         .replace(/\s+/g, ' ').trim();
@@ -39,9 +41,10 @@ class Index {
 
         indexArray.forEach((word, wordIndex) => {
 
-          //If the word already exists in the indexObject, 
-          //add an array with the word's docIndex and wordIndex for this occurrence, 
-          //under the 'word' property
+          /* If the word already exists in the indexObject, 
+          * add an array with the word's docIndex and wordIndex for this occurrence, 
+          * under the 'word' property
+          */
 
           if ( word in self.indexObj ) {
 
