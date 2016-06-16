@@ -1,90 +1,122 @@
-// Import the file reader
 class Index {
 
-  // Method to create an Index
+  // Method to create an inverted-index of the documents
   createIndex(filePath) {
+
+    // Here, self refers to the Index object
     var self = this;
 
+    // Initialise Object to store the inverted-index
     this.indexObj = {};
-
-    return fetch(filePath).then(function (response) {
-
-      return response.json();
+    
+    // Fetch the document 
+    // Resolve the promise and store the data in a variable, 'finallySomeData'
+    return fetch(filePath).then(function(response) {
+        return response.json();
 
       })
-      .then(function (finally_some_data) {
-        self.books = finally_some_data;
-        populateIndexArray();
+
+      .then(function( finallySomeData ) {
+        self.books = finallySomeData;
+        
+        // Call the populateIndex function to create the inverted-index
+        populateIndex();
+
       });
 
-
-    // For each document, turn to string, lowercase, remove special characters
-    // and trim beginning of line spaces.
-
-    function populateIndexArray() {
-      // Use forEach to iterate through each document obtaining its position in the document.
+    function populateIndex() {
+      // Iterate through the data obtaining each book's position in the document.
       self.books.forEach((book, docIndex) => {
+        
+         // For each document, turn to string, lowercase, remove special characters
+         // and trim beginning of line spaces.
+        var bookObjectString = JSON.stringify(book)
+        .toLowerCase().replace(/\W/g, ' ')
+        .replace(/\s+/g, ' ').trim();
 
-        var bookObjectString = JSON.stringify(book).toLowerCase().replace(/\W/g, ' ').replace(/\s+/g, ' ').trim();
-
-        // Concatenate document and split at space to form individual words.
-        // Map each word to its position in the document
+        // For each document, split at space to form individual words.
         var indexArray = bookObjectString.split(' ');
+
         indexArray.forEach((word, wordIndex) => {
-          if (word in self.indexObj) {
+
+          //If the word already exists in the indexObject, 
+          //add an array with the word's docIndex and wordIndex for this occurrence, 
+          //under the 'word' property
+
+          if ( word in self.indexObj ) {
+
             self.indexObj[word].push([docIndex, wordIndex]);
+
           } else {
+            // Else create a new array for that word
             self.indexObj[word] = [[docIndex, wordIndex]];
+
           }
+
         });
+
       });
-      console.log(self.indexObj);
+      //console.log(self.indexObj);
     }
+
   }
 
-  // Method to return inverted-index from create index method
+  // Method to return inverted-index from createIndex method
   getIndex() {
     return this.indexObj;
+
   }
-
-
 
   // Method to search the index for a term
   searchIndex(term) {
-
     try {
+      // Check if the 'term' provided is a string
+      if ( typeof term === 'string' ) {
 
-      if (typeof term === 'string') {
+        // Normalise input
         term = term.toLowerCase();
-        if (!(term in this.indexObj)) {
 
+        // 'term' is not in the inverted-index
+        if ( !(term in this.indexObj) ) {
           return 'No match has been made';
+
         }
+
+        // Return the value under the 'term' property in the inverted-index
         return this.indexObj[term];
 
       } else {
+        // If an invalid input is entered as a search term, throw this error
         throw "Search term type invalid: not type string.";
       }
 
+      // Catch the error here and display it
     } catch (error) {
       return error;
+
     }
+
   }
+
 }
 
-// var index = new Index();
-// index.createIndex('../books.json');
-// console.log(index.getIndex());
-// console.log(index.searchIndex('and'));
-// console.log(index.searchIndex('rudyard'));
-// console.log(index.searchIndex('astronomy'));
-// console.log(index.searchIndex(090));
-// console.log(index.searchIndex(true));
+// Instanciate the index and create,get and search methods
+var _index = new Index();
 
-var index = new Index();
-index.createIndex('/jasmine/books.json').then(function () {
-  // console.log(index.getIndex());
-  console.log(index.searchIndex('alice'))
+// Ensure createIndex is returned before getIndex is run
+_index.createIndex('/jasmine/books.json').then(function() {
+
+  console.log(_index.getIndex());
+
+  // Search for these 'terms'
+  console.log(_index.searchIndex('alice'))
+  console.log(_index.searchIndex('and'));
+  console.log(_index.searchIndex('rudyard'));
+  console.log(_index.searchIndex('astronomy'));
+  console.log(_index.searchIndex('wonderland'));
+
+  // Will it throw an invalid type error for non-string type entries?
+  console.log(_index.searchIndex(090));
+  console.log(_index.searchIndex(true));
+
 });
-
-
