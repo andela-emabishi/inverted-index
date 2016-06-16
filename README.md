@@ -64,7 +64,9 @@ console.log(index.searchIndex('rudyard'));
 [2 , 1]
 ```
 
-`console.log(index.searchIndex('astronomy'));`
+```javaScript
+console.log(index.searchIndex('astronomy'));
+```
 *The result of this would be:*
 ```
 No match has been made
