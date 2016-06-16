@@ -48,16 +48,18 @@ _index.createIndex('/jasmine/books.json').then(function() {
 	snipped .......}
 ```
   
-`console.log(index.searchIndex('and'));`
+```javaScript
+console.log(index.searchIndex('and'));
+```
 *The result of this would be:*
-
 ```javaScript
 [[0 , 3] , [0 , 11] , [ 1 , 20]
 ```
 
-`console.log(index.searchIndex('rudyard'));`
+```javaScript
+console.log(index.searchIndex('rudyard'));
+```
 *The result of this would be:*
-
 ```javaScript
 [2 , 1]
 ```
