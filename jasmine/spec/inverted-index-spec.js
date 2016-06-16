@@ -46,6 +46,11 @@ describe("Index", function() {
       expect(index.searchIndex('I am not there')).toBe('No match has been made');
     });
 
+    it("to throw an error when a non string type term has been searched ", function(){
+      expect(index.searchIndex(true)).toBe('Search term type invalid: not type string.');
+      expect(index.searchIndex(900)).toBe('Search term type invalid: not type string.');
+    });
+
   });
 
 });
