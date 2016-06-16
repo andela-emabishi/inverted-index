@@ -18,34 +18,34 @@ This Method takes a `term` as an argument and filters the index for the term, re
 ## Functionality
 ### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
 
-`var _index = new Index();`
+```var _index = new Index();
 
-`_index.createIndex('/jasmine/books.json').then(function() {`
+_index.createIndex('/jasmine/books.json').then(function() {
 
-  `console.log(_index.getIndex());`
+  console.log(_index.getIndex());
 
-  `// Search for these 'terms'`
-  `console.log(_index.searchIndex('alice'));`
-  `console.log(_index.searchIndex('and'));`
-  `console.log(_index.searchIndex('rudyard'));`
-  `console.log(_index.searchIndex('astronomy'));`
-  `console.log(_index.searchIndex('wonderland'));`
+  // Search for these 'terms'`
+  console.log(_index.searchIndex('alice'));
+  console.log(_index.searchIndex('and'));
+  console.log(_index.searchIndex('rudyard'));
+  console.log(_index.searchIndex('astronomy'));
+  console.log(_index.searchIndex('wonderland'));
 
-  `// Will it throw an invalid type error for non-string type entries?`
-  `console.log(_index.searchIndex(090));`
-  `console.log(_index.searchIndex(true));`
+  // Will it throw an invalid type error for non-string type entries?
+  console.log(_index.searchIndex(090));`
+  console.log(_index.searchIndex(true));
 
-`});`
+});```
 
 **For the books.JSON test object, the result would be:**
 
-`{  title : [0 , 0],`
-  `'alice : [[0 , 1],[0 , 5]],`
-  `'in : [0 , 2],`
-  `'wonderland : [0 , 3],`
-  `'text : [0 , 4],`
-  `'falls : [0 , 6],`
-  `snipped .......}`
+```{ title : [0 , 0],
+	alice : [[0 , 1],[0 , 5]],
+	in : [0 , 2],
+	wonderland : [0 , 3],
+	text : [0 , 4],
+	falls : [0 , 6],
+	snipped .......}```
   
 `console.log(index.searchIndex('and'));`
 *The result of this would be:*
@@ -61,7 +61,7 @@ This Method takes a `term` as an argument and filters the index for the term, re
 
 ### Dependencies
 *To run the tests, start a server at the root inverted-index folder by typing:
-`  python -m SimpleHTTPServer  8000` 
+`python -m SimpleHTTPServer  8000` 
 into your terminal program.
 Copy the addresses `localhost:8000` into a browser of your choice. Click into the jasmine then SpecRunner folder to run.
 
