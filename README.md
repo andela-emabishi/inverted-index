@@ -8,8 +8,10 @@ This Method accepts a filePath as its argument and creates an inverted-index fro
 
 ### getIndex()
 This Method returns the result of the createIndex method, an object that has the format:
-`{ word : [[documentID, wordPositionID]],`
-   `word2 : [[documentID, wordPositionID],[documentId, wordPositionID]]}`
+```javaScript
+{ word : [[documentID, wordPositionID]],
+  word2 : [[documentID, wordPositionID],[documentId, wordPositionID]]}
+ ```
 
 ### searchIndex(term)
 This Method takes a `term` as an argument and filters the index for the term, returning the `documentID` and `wordPositionID` for the term.
@@ -36,25 +38,35 @@ _index.createIndex('/jasmine/books.json').then(function() {
 
 **For the books.JSON test object, the result would be:**
 
-```{ title : [0 , 0],
+```javaScript
+   { title : [0 , 0],
 	alice : [[0 , 1],[0 , 5]],
 	in : [0 , 2],
 	wonderland : [0 , 3],
 	text : [0 , 4],
 	falls : [0 , 6],
-	snipped .......}```
+	snipped .......}
+```
   
 `console.log(index.searchIndex('and'));`
 *The result of this would be:*
-`[[0 , 3] , [0 , 11] , [ 1 , 20]`
+
+```javaScript
+[[0 , 3] , [0 , 11] , [ 1 , 20]
+```
 
 `console.log(index.searchIndex('rudyard'));`
 *The result of this would be:*
-`[2 , 1]`
+
+```javaScript
+[2 , 1]
+```
 
 `console.log(index.searchIndex('astronomy'));`
 *The result of this would be:*
-`No match has been made`
+```
+No match has been made
+```
 
 ### Dependencies
 *To run the tests, start a server at the root inverted-index folder by typing:
