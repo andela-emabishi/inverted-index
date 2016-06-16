@@ -16,7 +16,8 @@ This Method returns the result of the createIndex method, an object that has the
 ### searchIndex(term)
 This Method takes a `term` as an argument and filters the index for the term, returning the `documentID` and `wordPositionID` for the term returning:
 ```javaScript
-[documentId, wordPositionID]```
+[documentId, wordPositionID]
+```
 
 ## Functionality
 ### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
