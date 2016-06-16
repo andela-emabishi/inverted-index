@@ -26,12 +26,14 @@ This Method takes a `term` as an argument and filters the index for the term, re
 var _index = new Index();
 _index.createIndex('/jasmine/books.json').then(function() {
   console.log(_index.getIndex());
-  // Search for these 'terms'`
+
+  // Search for these 'terms'
   console.log(_index.searchIndex('alice'));
   console.log(_index.searchIndex('and'));
   console.log(_index.searchIndex('rudyard'));
   console.log(_index.searchIndex('astronomy'));
   console.log(_index.searchIndex('wonderland'));
+  
   // Will it throw an invalid type error for non-string type entries?
   console.log(_index.searchIndex(090));`
   console.log(_index.searchIndex(true));
