@@ -77,8 +77,10 @@ No match has been made
 ```
 
 ### Dependencies
-*To run the tests, start a server at the root inverted-index folder by typing:
-`python -m SimpleHTTPServer  8000` 
-into your terminal program.
-Copy the addresses `localhost:8000` into a browser of your choice. Click into the jasmine then SpecRunner folder to run.
+*To run the tests, clone this repository with the command:
+```git clone https://github.com/andela-emabishi/inverted-index.git`
+Start a server at the root inverted-index folder by typing into your terminal program:
+`python -m SimpleHTTPServer  8000`  
+Copy the addresses `localhost:8000` into a browser of your choice. 
+From the browser, click into the jasmine then SpecRunner folder to run.
 
