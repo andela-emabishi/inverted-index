@@ -81,3 +81,8 @@ No match has been made
 Start a server at the root inverted-index folder by typing `python -m SimpleHTTPServer  8000` into your terminal program.
 Copy the addresses `localhost:8000` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder to run.
 
+### License
+* Thid project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
+
+### Let's chat
+* You can find the author @emabishi or @andela-emabishi on github and @emabishi on twitter.
