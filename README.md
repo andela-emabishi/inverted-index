@@ -12,15 +12,17 @@ This Method returns the result of the createIndex method, an object that has the
 { word : [[documentID, wordPositionID]],
   word2 : [[documentID, wordPositionID],[documentId, wordPositionID]]}
  ```
+`documentID refers to the numerical identity of the document in which the word is found.`
+`wordPositionID refers to the poistion of the word in the document it is found.`
 
 ### searchIndex(term)
-This Method takes a `term` as an argument and filters the index for the term, returning the `documentID` and `wordPositionID` for the term returning:
+This Method takes a `term` as an argument and filters the index for the term, returning the `documentID` and `wordPositionID` for the term:
 ```javaScript
 [documentId, wordPositionID]
 ```
 
 ## Functionality
-### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
+#### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
 
 ```javaScript
 var _index = new Index();
@@ -40,7 +42,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
 });
 ```
 
-**For the books.JSON test object, the result would be:**
+**For the books.JSON test objects first document, alice, the result would be:**
 
 ```javaScript
    { title : [0 , 0],
