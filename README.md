@@ -12,8 +12,8 @@ This Method returns the result of the createIndex method, an object that has the
 { word : [[documentID, wordPositionID]],
   word2 : [[documentID, wordPositionID],[documentId, wordPositionID]]}
  ```
-`documentID refers to the numerical identity of the document in which the word is found.`
-`wordPositionID refers to the poistion of the word in the document it is found.`
+`documentID` refers to the numerical identity of the document in which the word is found.
+`wordPositionID` refers to the poistion of the word in the document it is found.
 
 ### searchIndex(term)
 This Method takes a `term` as an argument and filters the index for the term, returning the `documentID` and `wordPositionID` for the term:
@@ -84,7 +84,7 @@ Start a server at the root inverted-index folder by typing `python -m SimpleHTTP
 Copy the addresses `localhost:8000` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder to run.
 
 ### License
-Thid project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
+This project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
 
 ### Let's chat
 You can find the author [@emabishi] (https://github.com/emabishi) or [@andela-emabishi] (https://github.com/andela-emabishi) on github and @emabishi on twitter.
