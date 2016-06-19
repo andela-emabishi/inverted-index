@@ -96,7 +96,7 @@ console.log(_index.getFrequency('inappropriate'));
 ### Dependencies
 To run the tests, clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
 Start a server at the root inverted-index folder by typing `python -m SimpleHTTPServer  8000` into your terminal program.
-Copy the addresses `localhost:8000` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder to run.
+Copy the address `localhost:8000` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder to run.
 
 ### License
 This project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
