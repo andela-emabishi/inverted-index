@@ -27,7 +27,7 @@ describe("Index", function() {
       expect(typeof index.indexObj === 'object' && !Array.isArray(index.indexObj) && index.indexObj !== null).toBeTruthy();
     });
 
-    it("should not have an empty object", function() {
+    it("verifies that the index does have an empty object", function() {
       expect(Object.keys(index.indexObj).length).not.toBe(0);
     });
 
@@ -42,13 +42,13 @@ describe("Index", function() {
       expect(index.searchIndex('testing')).toEqual([[0, 0],[1,0]]);
     });
 
-    it("returns no match has been made for search terms not found", function() {
+    it("returns 'no match has been made' for search terms not found", function() {
       expect(index.searchIndex('I am not there')).toBe('No match has been made');
     });
 
-    it("to throw an error when a non string type term has been searched ", function(){
-      expect(index.searchIndex(true)).toBe('Search term type invalid: not type string.');
-      expect(index.searchIndex(900)).toBe('Search term type invalid: not type string.');
+    it("throws an error when a non string type term has been searched ", function(){
+      expect(index.searchIndex(true)).toBe('Search term type invalid: not string or array.');
+      expect(index.searchIndex(900)).toBe('Search term type invalid: not string or array.');
     });
 
   });
