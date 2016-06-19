@@ -21,6 +21,9 @@ This Method takes a `term` as an argument and filters the index for the term, re
 [documentId, wordPositionID]
 ```
 
+### getFrequency(term)
+This method takes a `term` as an argument and returns a value repersenting how many times the 'term' appears in the input file.
+
 ## Functionality
 #### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
 
@@ -77,6 +80,18 @@ console.log(index.searchIndex('astronomy'));
 ```
 No match has been made
 ```
+
+```javaScript
+console.log(_index.getFrequency('alice'));
+```
+* The result of this would be: * `2`
+
+```javaScript
+console.log(_index.getFrequency('inappropriate'));
+```
+* The result of this would be:*
+```Term not found in file```
+
 
 ### Dependencies
 To run the tests, clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
