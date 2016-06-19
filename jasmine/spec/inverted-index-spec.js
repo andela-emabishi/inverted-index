@@ -53,4 +53,16 @@ describe("Index", function() {
 
   });
 
+  describe("Get Frequency", function(){
+    it("verifies that only words in the inverted-index are matched to a frequency", function(){
+      expect(index.getFrequency('appropriate')).toBe('Term not found');
+    });
+    
+    it("verifies that the correct frequency has been assigned to a term", function(){
+      expect(index.getFrequency('test')).toBe(2);
+      expect(index.getFrequency('again')).toBe(1)
+    });
+
+  });
+
 });
