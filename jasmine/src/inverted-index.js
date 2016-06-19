@@ -107,7 +107,7 @@ class Index {
 
         // The the term is not in the inverted-index, its frequency cannot be established
         if (!(term in this.indexObj)) {
-            return 'Term not found in file'
+            return 'Term not found'
 
         } else {
             // Run getIndex to make the index object accessible
@@ -132,7 +132,6 @@ _index.createIndex('/jasmine/books.json').then(function() {
 
     // Search for these 'terms'
     console.log(_index.searchIndex('alice'))
-    // console.log(typeof(_index.searchIndex('alice'))) 
     console.log(_index.searchIndex('and'));
     console.log(_index.searchIndex('rudyard'));
     console.log(_index.searchIndex('astronomy'));
@@ -142,7 +141,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
     console.log(_index.searchIndex(90));
     console.log(_index.searchIndex(true));
 
-    // Get frequency of these terms
+    // Get the frequency of these terms
     console.log(_index.getFrequency('lord'));
     console.log(_index.getFrequency('alice'));
     console.log(_index.getFrequency('inappropriate'));
