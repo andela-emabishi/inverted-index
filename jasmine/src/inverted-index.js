@@ -122,7 +122,7 @@ class Index {
 
 }
 
-// Instanciate the index and create,get and search methods
+// Instanciate the index,create,get,search and getFequency methods
 var _index = new Index();
 
 // Ensure the result of createIndex is returned before getIndex is run
@@ -142,7 +142,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
     console.log(_index.searchIndex(90));
     console.log(_index.searchIndex(true));
 
-    // Get frequency
+    // Get frequency of these terms
     console.log(_index.getFrequency('lord'));
     console.log(_index.getFrequency('alice'));
     console.log(_index.getFrequency('inappropriate'));
