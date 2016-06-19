@@ -84,12 +84,12 @@ No match has been made
 ```javaScript
 console.log(_index.getFrequency('alice'));
 ```
-* The result of this would be: * `2`
+*The result of this would be:* `2`
 
 ```javaScript
 console.log(_index.getFrequency('inappropriate'));
 ```
-* The result of this would be:*
+*The result of this would be:*
 ```Term not found in file```
 
 
