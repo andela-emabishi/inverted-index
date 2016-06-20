@@ -51,6 +51,10 @@ describe("Index", function() {
       expect(index.searchIndex(900)).toBe('Search term type invalid: not string or array.');
     });
 
+    it("can parse an array passed into the searchIndex function", function(){
+      expect(index.searchIndex(['Testing','again'])).toEqual({ testing: [[0,0], [1,0]], again: [[1,2]] })
+    })
+
   });
 
   describe("Get Frequency", function() {
