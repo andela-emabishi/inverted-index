@@ -73,48 +73,50 @@ _index.createIndex('/jasmine/books.json').then(function() {
 ```
   
 
-*The result of 
+*The result of:*
 ```javaScript
 console.log(index.searchIndex('and'));
 ``` 
-would be:*
+*would be:*
 
-```javaScript
-[[0 , 3] , [0 , 11] , [ 1 , 20]
-```
+`[[0 , 3] , [0 , 11] , [ 1 , 20]`
 
+*The result of:*
 ```javaScript
 console.log(index.searchIndex('rudyard'));
 ```
-*The result of this would be:*
-```javaScript
-[2 , 1]
-```
+*would be:*
 
+`[2 , 1]`
+
+*The result of:*
 ```javaScript
 console.log(index.searchIndex('astronomy'));
 ```
-*The result of this would be:*
-```
-No match has been made
-```
+*would be:*
 
+`No match has been made`
+
+*The result of:*
 ```javaScript
  console.log(_index.searchIndex(['Lord','Author','Tolkien']));
 ```
-*The result of this would be:*
-```{ lord: [1,2], author: [2,1] }```
+*would be:*
+`{ lord: [1,2], author: [2,1] }`
 
+*The result of:*
 ```javaScript
 console.log(_index.getFrequency('alice'));
 ```
-*The result of this would be:* `2`
+*would be:* `2`
 
+
+*The result of:*
 ```javaScript
 console.log(_index.getFrequency('inappropriate'));
 ```
-*The result of this would be:*
-```Term not found in file```
+*would be:*
+`Term not found in file`
 
 
 ### Dependencies
