@@ -104,6 +104,12 @@ console.log(_index.getFrequency('inappropriate'));
 *The result of this would be:*
 ```Term not found in file```
 
+```javaScript
+ console.log(_index.searchIndex(['Lord','Author','Tolkien']));
+```
+*The result of this would be:*
+```{ lord: [1,2], author: [2,1] }```
+
 
 ### Dependencies
 To run the tests: 
