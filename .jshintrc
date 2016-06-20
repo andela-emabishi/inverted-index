@@ -12,7 +12,7 @@
   "noarg": true,
   "noempty": true,
   "nonew": true,
-  "esnext": true,
+  "esversion": 6,
   "moz": true,
   "predef": [
     "_",
