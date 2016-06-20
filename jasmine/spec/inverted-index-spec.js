@@ -32,25 +32,14 @@ describe("Index", function() {
         });
 
         it("verifies the index maps words to the correct objects in the JSON ", function() {
-            expect(index.indexObj).toEqual({ testing: [
-                    [0, 0],
-                    [1, 0]
-                ], test: [
-                    [0, 1],
-                    [1, 1]
-                ], again: [
-                    [1, 2]
-                ] });
+            expect(index.indexObj).toEqual({ testing: [[0, 0],[1, 0]], test: [[0, 1],[1, 1]], again: [[1, 2]] });
         });
 
     });
 
     describe("Search Index", function() {
         it("verifies that searching the Index returns the correct results", function() {
-            expect(index.searchIndex('testing')).toEqual([
-                [0, 0],
-                [1, 0]
-            ]);
+            expect(index.searchIndex('testing')).toEqual([[0, 0],[1, 0]]);
         });
 
         it("returns 'no match has been made' for search terms not found", function() {
