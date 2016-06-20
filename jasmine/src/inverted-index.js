@@ -164,15 +164,15 @@ class Index {
      
      // If the document argument has been provided
     } else {
-      var freq = 0;
+      var frequency = 0;
       for (var i = 0; i < this.indexObj[term].length; i++) {
-        if (this.indexObj[term][i][0] === doc) {
-          freq++;
+        if (this.indexObj[term][i][0] === docReference) {
+          frequency++;
         }
 
       }
 
-      return freq;
+      return frequency;
     }
 
   }
