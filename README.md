@@ -40,7 +40,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
   console.log(_index.searchIndex('wonderland'));
   
   // Will it throw an invalid type error for non-string type entries?
-  console.log(_index.searchIndex(090));`
+  console.log(_index.searchIndex(090));
   console.log(_index.searchIndex(true));
 
   // Get the frequency of these terms
