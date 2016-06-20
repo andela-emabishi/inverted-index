@@ -27,7 +27,7 @@ OR
 ```
 
 ### getFrequency(term, docReference)
-This method takes a `term` and 'docReference' as an argument and returns a value repersenting how many times the `term` appears in the document referenced. If no `docReference` is provided, then the method is executed for the entire inverted-index.
+This method takes a `term` and `docReference` as an argument and returns a value repersenting how many times the `term` appears in the document referenced. If no `docReference` is provided, then the method is executed for the entire inverted-index.
 
 ## Functionality
 #### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
