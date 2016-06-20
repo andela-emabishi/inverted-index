@@ -79,7 +79,9 @@ console.log(index.searchIndex('and'));
 ``` 
 *would be:*
 
-`[[0 , 3] , [0 , 11] , [ 1 , 20]`
+```javaScript
+[[0 , 3] , [0 , 11] , [ 1 , 20]
+```
 
 *The result of:*
 ```javaScript
@@ -87,7 +89,9 @@ console.log(index.searchIndex('rudyard'));
 ```
 *would be:*
 
-`[2 , 1]`
+```javaScript
+[2 , 1]
+```
 
 *The result of:*
 ```javaScript
@@ -95,14 +99,16 @@ console.log(index.searchIndex('astronomy'));
 ```
 *would be:*
 
-`No match has been made`
+```No match has been made```
 
 *The result of:*
 ```javaScript
  console.log(_index.searchIndex(['Lord','Author','Tolkien']));
 ```
 *would be:*
-`{ lord: [1,2], author: [2,1] }`
+```javaScript
+{ lord: [1,2], author: [2,1] }
+```
 
 *The result of:*
 ```javaScript
@@ -116,7 +122,7 @@ console.log(_index.getFrequency('alice'));
 console.log(_index.getFrequency('inappropriate'));
 ```
 *would be:*
-`Term not found in file`
+```Term not found in file```
 
 
 ### Dependencies
