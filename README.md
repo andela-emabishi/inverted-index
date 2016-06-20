@@ -26,8 +26,8 @@ OR
   term2 : [documentId, wordPositionId]}
 ```
 
-### getFrequency(term)
-This method takes a `term` as an argument and returns a value repersenting how many times the 'term' appears in the input file.
+### getFrequency(term, docReference)
+This method takes a `term` and 'docReference' as an argument and returns a value repersenting how many times the `term` appears in the document referenced. If no `docReference` is provided, then the method is executed for the entire inverted-index.
 
 ## Functionality
 #### Create an instance of the Index Class and call the createIndex and getIndex methods, for example:
@@ -54,6 +54,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
   // Get the frequency of these terms
   console.log(_index.getFrequency('lord'));
   console.log(_index.getFrequency('alice'));
+  console.log(_index.getFrequency('ring', 1));
   console.log(_index.getFrequency('inappropriate'));
 
 });
@@ -115,6 +116,14 @@ No match has been made
 *The result of:*
 ```javaScript
 console.log(_index.getFrequency('alice'));
+```
+*would be:* 
+```javaScript
+2
+```
+*The result of:*
+```javaScript
+console.log(_index.getFrequency('ring', 1));
 ```
 *would be:* 
 ```javaScript
