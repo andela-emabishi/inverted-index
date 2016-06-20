@@ -55,12 +55,13 @@ _index.createIndex('/jasmine/books.json').then(function() {
 
 ```javaScript
    { title : [0 , 0],
-	alice : [[0 , 1],[0 , 5]],
-	in : [0 , 2],
-	wonderland : [0 , 3],
-	text : [0 , 4],
-	falls : [0 , 6],
-	snipped .......}
+	   alice : [[0 , 1],[0 , 5]],
+	   in : [0 , 2],
+	   wonderland : [0 , 3],
+	   text : [0 , 4],
+	   falls : [0 , 6],
+	   snipped .......
+   }
 ```
   
 ```javaScript
@@ -100,9 +101,12 @@ console.log(_index.getFrequency('inappropriate'));
 
 
 ### Dependencies
-To run the tests, clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
-Start a server at the root inverted-index folder by typing `python -m SimpleHTTPServer  8000` into your terminal program.
-Copy the address `localhost:8000` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder to run.
+To run the tests: 
+1. Clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
+2. Install [node.js v6.2.2] (https://nodejs.org/en/) on your machine.
+3. Install server dependencies by running the command ` npm install http-server -g`
+4. Start a server at the root inverted-index folder by typing `http-server` into your terminal program.
+5. Copy the address given i.e. `http://127.0.0.1:8080` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder or `http://127.0.0.1:8080/jasmine/SpecRunner.html` to run.
 
 ### License
 This project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
