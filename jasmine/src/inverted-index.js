@@ -14,15 +14,12 @@ class Index {
          */
         return fetch(filePath).then(function(response) {
             return response.json();
-
         })
-
         .then(function(finallySomeData) {
             self.books = finallySomeData;
 
             // Call the populateIndex function to create the inverted-index
             populateIndex();
-
         });
 
         function populateIndex() {
@@ -105,16 +102,21 @@ class Index {
     // Method to get the frequency of a term in the inverted-index
     getFrequency(term) {
 
-        // The the term is not in the inverted-index, its frequency cannot be established
+        /* The term is not in the inverted-index,
+        * its frequency cannot be established
+        */
         if (!(term in this.indexObj)) {
-            return 'Term not found'
+            return 'Term not found';
 
         } else {
             // Run getIndex to make the index object accessible
             index.getIndex();
 
-            // Go through the index and get the length of the array corresponding to the word
-            // i.e. term: [[1,2],[2,3]] , (indexObject[term]).length = 2
+            /* Go through the index and get the length 
+            * of the array corresponding to the word
+            * i.e. term: [[1,2],[2,3]] , (indexObject[term]).length = 2
+            */
+
             return (this.indexObj[term]).length
         }
 
@@ -131,7 +133,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
     console.log(_index.getIndex());
 
     // Search for these 'terms'
-    console.log(_index.searchIndex('alice'))
+    console.log(_index.searchIndex('alice'));
     console.log(_index.searchIndex('and'));
     console.log(_index.searchIndex('rudyard'));
     console.log(_index.searchIndex('astronomy'));
