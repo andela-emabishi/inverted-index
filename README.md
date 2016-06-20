@@ -118,8 +118,8 @@ console.log(_index.getFrequency('alice'));
 ```
 *would be:* 
 ```javaScript
-2```
-
+2
+```
 
 *The result of:*
 ```javaScript
