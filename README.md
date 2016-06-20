@@ -99,7 +99,9 @@ console.log(index.searchIndex('astronomy'));
 ```
 *would be:*
 
-```No match has been made```
+```javaScript
+No match has been made
+```
 
 *The result of:*
 ```javaScript
@@ -114,7 +116,9 @@ console.log(index.searchIndex('astronomy'));
 ```javaScript
 console.log(_index.getFrequency('alice'));
 ```
-*would be:* `2`
+*would be:* 
+```javaScript
+2```
 
 
 *The result of:*
@@ -122,7 +126,8 @@ console.log(_index.getFrequency('alice'));
 console.log(_index.getFrequency('inappropriate'));
 ```
 *would be:*
-```Term not found in file```
+```javaScript
+Term not found in file```
 
 
 ### Dependencies
