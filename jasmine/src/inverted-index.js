@@ -74,8 +74,27 @@ class Index {
   // Method to search the index for a term
   searchIndex(term) {
     try {
+      // Check if the term provided is a phrase
+      if (typeof term === 'string' && term.match(/\s+/)) {
+
+        var found = 'No match has been made';
+        this.books.forEach((book, docIndex) => {
+          var phraseString = JSON.stringify(book)
+          .toLowerCase().replace(/\W/g, ' ')
+          .replace(/\s+/g, ' ').trim();
+
+          var testReg = new RegExp(term,'gi');
+
+          if (testReg.test(phraseString) === true){
+            found = term + ' found in document ' + docIndex;
+          }
+
+        });
+        return found;
+      }
+
       // Check if the 'term' provided is a string or an array
-      if (typeof term === 'string') {
+      else if (typeof term === 'string') {
         // Normalise input
         term = term.toLowerCase();
 
@@ -88,7 +107,8 @@ class Index {
          * in the inverted-index
          */
         return this.indexObj[term];
-
+        
+        // If the term is an array
       } else if (Array.isArray(term) === true) {
         this.termArrayObject = {};
 
@@ -99,7 +119,7 @@ class Index {
 
           if (!(word in this.indexObj)) {
             //console.log('No match has been made for', word);
-            return 'No match has been made'
+            return 'No match has been made';
 
           } else {
             this.termArrayObject[word] = this.indexObj[word];
@@ -126,7 +146,7 @@ class Index {
   }
 
   // Method to get the frequency of a term in the inverted-index
-  getFrequency(term) {
+  getFrequency(term, docReference) {
 
     /* The term is not in the inverted-index,
      * its frequency cannot be established
@@ -134,15 +154,25 @@ class Index {
     if (!(term in this.indexObj)) {
       return 'Term not found';
 
-    } else {
-      // Run getIndex to make the index object accessible
-      index.getIndex();
-
-      /* Go through the index and get the length 
+      /* If no document argument has been passed,
+       * go through the index and get the length 
        * of the array corresponding to the word
        * i.e.term: [[1,2],[2,3]] , (indexObject[term]).length = 2
        */
-      return (this.indexObj[term]).length
+    } else if (docReference === undefined) {
+      return (this.indexObj[term]).length;
+     
+     // If the document argument has been provided
+    } else {
+      var freq = 0;
+      for (var i = 0; i < this.indexObj[term].length; i++) {
+        if (this.indexObj[term][i][0] === doc) {
+          freq++;
+        }
+
+      }
+
+      return freq;
     }
 
   }
@@ -174,6 +204,13 @@ _index.createIndex('/jasmine/books.json').then(function() {
   // Get the frequency of these terms
   console.log(_index.getFrequency('lord'));
   console.log(_index.getFrequency('alice'));
+  console.log(_index.getFrequency('ring', 1));
   console.log(_index.getFrequency('inappropriate'));
+ 
+
+  // Pass in a phrase
+  console.log(_index.searchIndex('Alice in Wonderland'));
+  console.log(_index.searchIndex('Aragorn the King'));
+
 
 });
