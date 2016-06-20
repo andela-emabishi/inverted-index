@@ -80,7 +80,6 @@ console.log(index.searchIndex('and'));
 [[0 , 3] , [0 , 11] , [ 1 , 20]
 ```
 
-
 ```javaScript
 console.log(index.searchIndex('rudyard'));
 ```
@@ -88,7 +87,6 @@ console.log(index.searchIndex('rudyard'));
 ```javaScript
 [2 , 1]
 ```
-
 
 ```javaScript
 console.log(index.searchIndex('astronomy'));
@@ -98,19 +96,16 @@ console.log(index.searchIndex('astronomy'));
 No match has been made
 ```
 
-
 ```javaScript
  console.log(_index.searchIndex(['Lord','Author','Tolkien']));
 ```
 *The result of this would be:*
 ```{ lord: [1,2], author: [2,1] }```
 
-
 ```javaScript
 console.log(_index.getFrequency('alice'));
 ```
 *The result of this would be:* `2`
-
 
 ```javaScript
 console.log(_index.getFrequency('inappropriate'));
