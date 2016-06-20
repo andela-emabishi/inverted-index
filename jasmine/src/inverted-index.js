@@ -10,7 +10,8 @@ class Index {
         this.indexObj = {};
 
         /* Fetch the document 
-         * Resolve the promise and store the data in a variable, 'finallySomeData'
+         * Resolve the promise and 
+         * store the data in a variable, 'finallySomeData'
          */
         return fetch(filePath).then(function(response) {
             return response.json();
@@ -23,10 +24,13 @@ class Index {
         });
 
         function populateIndex() {
-            // Iterate through the data obtaining each book's position in the document.
+            /* Iterate through the data 
+            * obtaining each book's position in the document.
+            */
             self.books.forEach((book, docIndex) => {
 
-                /* For each document, turn to string, lowercase, remove special characters
+                /* For each document, turn to string, 
+                * lowercase, remove special characters
                  * and trim beginning of line spaces.
                  */
                 var bookObjectString = JSON.stringify(book)
@@ -39,7 +43,8 @@ class Index {
                 indexArray.forEach((word, wordIndex) => {
 
                     /* If the word already exists in the indexObject, 
-                     * add an array with the word's docIndex and wordIndex for this occurrence, 
+                     * add an array with the word's docIndex 
+                     * and wordIndex for this occurrence, 
                      * under the 'word' property
                      */
 
@@ -83,12 +88,17 @@ class Index {
 
                 }
 
-                // Return the value under the 'term' property in the inverted-index
+                /* Return the value under the 'term' property 
+                * in the inverted-index
+                */
                 return this.indexObj[term];
 
             } else {
-                // If an invalid input is entered as a search term, throw this error
-                throw "Search term type invalid: not string or array.";
+                /* If an invalid input 
+                * is entered as a search term,
+                * throw this error
+                */
+                throw 'Search term type invalid: not string or array.';
             }
 
             // Catch the error here and display it
