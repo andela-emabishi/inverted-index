@@ -90,20 +90,23 @@ class Index {
         return this.indexObj[term];
 
       } else if (Array.isArray(term) === true) {
-
         this.termArrayObject = {};
+
+        /* Map each word in the 'term' array to the inverted-index object
+        */
         term.map(word => {
           word = word.toLowerCase();
 
           if (!(word in this.indexObj)) {
-            return 'No match has been made';
+            //console.log('No match has been made for', word);
+            return 'No match has been made'
 
           } else {
-            this.termArrayObject[word] = this.indexObj[word]
+            this.termArrayObject[word] = this.indexObj[word];
           }
 
-        })
-        return this.termArrayObject
+        });
+        return this.termArrayObject;
       }
 
       // Neither an array or string
@@ -162,7 +165,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
   console.log(_index.searchIndex('wonderland'));
 
   //What about passing an array?
-  console.log(_index.searchIndex(['Alice','Lord','Author']));
+  console.log(_index.searchIndex(['Alice','Lord','Author','Tolkien']));
 
   // Will it throw an invalid type error for non-string type entries?
   console.log(_index.searchIndex(90));
