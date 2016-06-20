@@ -73,9 +73,12 @@ _index.createIndex('/jasmine/books.json').then(function() {
 ```
   
 
-*The result of ```javaScript
+*The result of 
+```javaScript
 console.log(index.searchIndex('and'));
-``` would be:*
+``` 
+would be:*
+
 ```javaScript
 [[0 , 3] , [0 , 11] , [ 1 , 20]
 ```
