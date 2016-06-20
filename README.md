@@ -127,7 +127,8 @@ console.log(_index.getFrequency('inappropriate'));
 ```
 *would be:*
 ```javaScript
-Term not found in file```
+Term not found in file
+```
 
 
 ### Dependencies
