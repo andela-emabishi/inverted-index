@@ -43,6 +43,9 @@ _index.createIndex('/jasmine/books.json').then(function() {
   console.log(_index.searchIndex('rudyard'));
   console.log(_index.searchIndex('astronomy'));
   console.log(_index.searchIndex('wonderland'));
+
+  //What about passing an array?
+  console.log(_index.searchIndex(['Alice','Lord','Author','Tolkien']));
   
   // Will it throw an invalid type error for non-string type entries?
   console.log(_index.searchIndex(090));
@@ -94,6 +97,12 @@ No match has been made
 ```
 
 ```javaScript
+ console.log(_index.searchIndex(['Lord','Author','Tolkien']));
+```
+*The result of this would be:*
+```{ lord: [1,2], author: [2,1] }```
+
+```javaScript
 console.log(_index.getFrequency('alice'));
 ```
 *The result of this would be:* `2`
@@ -103,12 +112,6 @@ console.log(_index.getFrequency('inappropriate'));
 ```
 *The result of this would be:*
 ```Term not found in file```
-
-```javaScript
- console.log(_index.searchIndex(['Lord','Author','Tolkien']));
-```
-*The result of this would be:*
-```{ lord: [1,2], author: [2,1] }```
 
 
 ### Dependencies
