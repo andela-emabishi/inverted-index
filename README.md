@@ -106,7 +106,7 @@ To run the tests:
 * Install [node.js v6.2.2] (https://nodejs.org/en/) on your machine.
 * Install server dependencies by running the command ` npm install http-server -g`. More on this [here] (https://www.npmjs.com/package/http-server)
 * Start a server at the root inverted-index folder by typing `http-server` into your terminal program.
-* Copy the address given i.e. `http://127.0.0.1:8080` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder or `http://127.0.0.1:8080/jasmine/SpecRunner.html` to run.
+* Copy the address given i.e. `http://127.0.0.1:8080` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder or use `http://127.0.0.1:8080/jasmine/SpecRunner.html` to run.
 
 ### License
 This project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
