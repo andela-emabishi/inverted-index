@@ -7,5 +7,9 @@
   {
     "title": "The Lord of the Rings: The Fellowship of the Ring.",
     "text": "An unusual alliance of man, elf, dwarf, wizard and hobbit seek to destroy a powerful ring."
+  },
+
+  { "author": "Rudyard Kipling",
+    "title": "The Jungle Book"
   }
 ]
