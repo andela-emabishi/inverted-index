@@ -16,14 +16,20 @@ This Method returns the result of the createIndex method, an object that has the
 `wordPositionID` refers to the poistion of the word in the document it is found.
 
 ### searchIndex(term)
-This Method takes a `term`, a string or array, as an argument and filters the index for the term or terms, returning the `documentID` and `wordPositionID` for the term:
+This Method takes a `term`, a string, array or phrase, as an argument and filters the index for the term or terms.
+
+For a single word `string`:
 ```javaScript
 [documentId, wordPositionID]
 ```
-OR
+For an `array`:
 ```javaScript
 { term1 : [documentId, wordPositionId],
-  term2 : [documentId, wordPositionId]}
+  term2 : [[documentId, wordPositionId],[documentId, wordPositionId]]}
+```
+For a `phrase`:
+```javaScript
+phrase has been found in document: docIndex
 ```
 
 ### getFrequency(term, docReference)
