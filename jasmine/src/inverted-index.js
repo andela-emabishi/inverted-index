@@ -118,37 +118,3 @@ class Index {
     }
   }
 }
-
-// // Instanciate the index,create,get,search and getFequency methods
-// var _index = new Index();
-
-// // Ensure the result of createIndex is returned before getIndex is run
-// _index.createIndex('/jasmine/books.json').then(function() {
-
-//   console.log(_index.getIndex());
-
-//   // Search for these 'terms'
-//   console.log(_index.searchIndex('alice'));
-//   console.log(_index.searchIndex('and'));
-//   console.log(_index.searchIndex('rudyard'));
-//   console.log(_index.searchIndex('astronomy'));
-//   console.log(_index.searchIndex('wonderland'));
-
-//   //What about passing an array?
-//   console.log(_index.searchIndex(['Alice','Lord','Author','Tolkien']));
-
-//   // Will it throw an invalid type error for non-string type entries?
-//   console.log(_index.searchIndex(90));
-//   console.log(_index.searchIndex(true));
-
-//   // Get the frequency of these terms
-//   console.log(_index.getFrequency('lord'));
-//   console.log(_index.getFrequency('alice'));
-//   console.log(_index.getFrequency('ring', 1));
-//   console.log(_index.getFrequency('inappropriate'));
- 
-
-//   // Pass in a phrase
-//   console.log(_index.searchIndex('Alice in Wonderland'));
-//   console.log(_index.searchIndex('Aragorn the King'));
-// });
