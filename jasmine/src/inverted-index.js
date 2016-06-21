@@ -82,8 +82,8 @@ class Index {
         term.map(word => {
           word = word.toLowerCase();
           if (!(word in this.invertedIndexObject)) {
-            //console.log('No match has been made for', word);
             return 'No match has been made';
+            
           } else {
             this.termArrayObject[word] = this.invertedIndexObject[word];
           }
