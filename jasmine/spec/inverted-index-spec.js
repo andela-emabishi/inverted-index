@@ -1,4 +1,5 @@
 // Instanciate new Index
+'use strict';
 var index = new Index();
 
 // Run createIndex method and make sure it completes before any test is run
@@ -24,21 +25,23 @@ describe('Index', function() {
 
       //typeof object,array and null === 'undefined'
       //Make sure it's not either an array or null
-      expect(typeof index.indexObj === 'object' && !Array.isArray(index.indexObj) && index.indexObj !== null).toBeTruthy();
+      expect(typeof index.invertedIndexObject === 'object' && 
+        !Array.isArray(index.invertedIndexObject) && 
+        index.invertedIndexObject !== null).toBeTruthy();
     });
 
     it('verifies that the index does have an empty object', function() {
-      expect(Object.keys(index.indexObj).length).not.toBe(0);
+      expect(Object.keys(index.invertedIndexObject).length).not.toBe(0);
     });
 
     it('verifies the index maps words to the correct objects in the JSON ', function() {
-      expect(index.indexObj).toEqual({ testing: [[0, 0],[1, 0]], test: [[0, 1],[1, 1]], again: [[1, 2]] });
+      expect(index.invertedIndexObject).toEqual({ testing: [[0, 0],[1, 0]], test: [[0, 1],[1, 1]], again: [[1, 2]] });
     });
 
   });
 
   describe('Search Index', function() {
-    it("verifies that searching the Index returns the correct results", function() {
+    it('verifies that searching the Index returns the correct results', function() {
       expect(index.searchIndex('testing')).toEqual([[0, 0],[1, 0]]);
     });
 
@@ -79,7 +82,7 @@ describe('Index', function() {
       expect(index.getFrequency('again')).toBe(1);
     });
 
-    it('verifies that the correct frequency has been assigned to a term in a particular document', function(){
+    it('verifies that the correct frequency has been assigned \to a term in a particular document', function(){
       expect(index.getFrequency('again',1)).toBe(1);
     });
 
