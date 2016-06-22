@@ -52,8 +52,7 @@ class Index {
 
         this.books.forEach((book, docIndex) => {
           var phraseString = JSON.stringify(book)
-          .toLowerCase().replace(/\W/g, ' ')
-          .replace(/\s+/g, ' ').trim();
+          .toLowerCase().replace(/\W+/g, ' ').trim();
 
           var testRegex = new RegExp(term,'gi');
 
@@ -66,7 +65,7 @@ class Index {
 
        // Check if the term is a string
       } else if (typeof term === 'string') {
-        term = term.toLowerCase();
+        term = term.toLowerCase().replace(/\W+/g, '');
         if (!(term in this.invertedIndexObject)) {
           return 'No match has been made';
         }
@@ -75,13 +74,14 @@ class Index {
         return this.invertedIndexObject[term];
         
         // Check if term is an array
+
       } else if (Array.isArray(term) === true) {
         this.termArrayObject = {};
 
         term.map(word => {
           word = word.toLowerCase();
           if (!(word in this.invertedIndexObject)) {
-            return 'No match has been made';
+            this.termArrayObject[word] = 'No match has been made';
             
           } else {
             this.termArrayObject[word] = this.invertedIndexObject[word];
