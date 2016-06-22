@@ -23,8 +23,7 @@ class Index {
          * trim beginning of line spaces and split into individual words.
          */
         var indexArray = JSON.stringify(book)
-          .toLowerCase().replace(/\W/g, ' ')
-          .replace(/\s+/g, ' ').trim().split(' ');
+          .toLowerCase().replace(/\W+/g, ' ').trim().split(' ');
 
         indexArray.forEach((word, wordIndex) => {
           if (word in self.invertedIndexObject) {
