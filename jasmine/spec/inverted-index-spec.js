@@ -21,7 +21,8 @@ describe('Index', function() {
   });
 
   describe('Populate index', function() {
-    it('checks if index has been created once the JSON file has been read', function() {
+    it('checks if index has been created once the JSON file has been read',
+     function() {
 
       //typeof object,array and null === 'undefined'
       //Make sure it's not either an array or null
@@ -48,7 +49,6 @@ describe('Index', function() {
     it("returns 'no match has been made' for search terms not found", function() {
       expect(index.searchIndex('appropriate'))
       .toBe('No match has been made');
-      //expect(index.searchIndex())
       expect(index.searchIndex('I am not there'))
       .toBe('No match has been made');
     });
