@@ -93,25 +93,23 @@ class Index {
         return this.invertedIndexObject[term];
       }
     }
-
   }
 
   verifyTermIsPhrase(term) {
     var self = this;
-      var result = 'No match has been made';
+    var result = 'No match has been made';
 
-      self.books.forEach((book, docIndex) => {
-        var phraseString = JSON.stringify(book)
-          .toLowerCase().replace(/\W+/g, ' ').trim();
+    self.books.forEach((book, docIndex) => {
+      var phraseString = JSON.stringify(book)
+        .toLowerCase().replace(/\W+/g, ' ').trim();
 
-        var testRegex = new RegExp(term, 'gi');
+      var testRegex = new RegExp(term, 'gi');
+      if (testRegex.test(phraseString) === true) {
+        result = term + ' found in document ' + docIndex;
+      }
+    });
 
-        if (testRegex.test(phraseString) === true) {
-          result = term + ' found in document ' + docIndex;
-        }
-      });
-      return result;
-
+    return result;
   }
 
   // Method to get the frequency of a term in the inverted-index
