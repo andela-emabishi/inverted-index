@@ -77,7 +77,7 @@ class Index {
 
         // Check if term is an array
 
-      } else if (Array.isArray(term) === true) {
+      } else if (Array.isArray(term)) {
         this.termArrayObject = {};
 
         term.map(word => {
