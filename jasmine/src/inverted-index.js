@@ -5,7 +5,7 @@ class Index {
   createIndex(filePath) {
     var self = this;
     this.invertedIndexObject = {};
-    
+
     // Fetch the file and resolve the promise as a JSON file
     return fetch(filePath).then(function(response) {
         return response.json();
@@ -29,7 +29,9 @@ class Index {
           if (word in self.invertedIndexObject) {
             self.invertedIndexObject[word].push([docIndex, wordIndex]);
           } else {
-            self.invertedIndexObject[word] = [ [docIndex, wordIndex] ];
+            self.invertedIndexObject[word] = [
+              [docIndex, wordIndex]
+            ];
           }
         });
       });
@@ -52,18 +54,18 @@ class Index {
 
         this.books.forEach((book, docIndex) => {
           var phraseString = JSON.stringify(book)
-          .toLowerCase().replace(/\W+/g, ' ').trim();
+            .toLowerCase().replace(/\W+/g, ' ').trim();
 
-          var testRegex = new RegExp(term,'gi');
+          var testRegex = new RegExp(term, 'gi');
 
-          if (testRegex.test(phraseString) === true){
+          if (testRegex.test(phraseString) === true) {
             result = term + ' found in document ' + docIndex;
           }
         });
 
         return result;
 
-       // Check if the term is a string
+        // Check if the term is a string
       } else if (typeof term === 'string') {
         term = term.toLowerCase().replace(/\W+/g, '');
         if (!(term in this.invertedIndexObject)) {
@@ -72,7 +74,7 @@ class Index {
 
         // Return the value under the 'term' property in the inverted-index
         return this.invertedIndexObject[term];
-        
+
         // Check if term is an array
 
       } else if (Array.isArray(term) === true) {
@@ -82,7 +84,7 @@ class Index {
           word = word.toLowerCase();
           if (!(word in this.invertedIndexObject)) {
             this.termArrayObject[word] = 'No match has been made';
-            
+
           } else {
             this.termArrayObject[word] = this.invertedIndexObject[word];
           }
@@ -103,8 +105,8 @@ class Index {
       return 'Term not found';
     } else if (docReference === undefined) {
       return (this.invertedIndexObject[term]).length;
-     
-     // If the document argument has been provided
+
+      // If the document argument has been provided
     } else {
       var frequency = 0;
       for (var i = 0; i < this.invertedIndexObject[term].length; i++) {
