@@ -2,11 +2,10 @@
 'use strict';
 var index = new Index();
 
-describe('Expose fetch errors', function() {
+describe('Expose fetch errors', () => {
   it('should expose an error if something went wrong with fetching the JSON', function(done) {
     index.createIndex('/jasmine/spec/tester.json').catch((error) => {
       expect(error).toEqual(jasmine.any(Error));
-      //expect(error.toString()).toEqual('Error: Not Found');
       done();
     });
 
@@ -14,9 +13,7 @@ describe('Expose fetch errors', function() {
 
 });
 
-
-describe('Index test suite', function(){
-
+describe('Index test suite', () => {
 //Run createIndex method and make sure it completes before any test is run
 beforeEach(done => {
   index.createIndex('/jasmine/spec/test.json').then(() => {
@@ -25,7 +22,6 @@ beforeEach(done => {
 
 });
 
-// Test suite for Index class
   describe('Read book data', () => {
     it('should read the JSON file and assert its not empty', () => {
       expect(index.books.length).toBeGreaterThan(0);
