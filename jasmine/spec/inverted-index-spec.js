@@ -24,12 +24,11 @@ describe('Index',() => {
 
       // typeof object,array and null === 'object'
       // Make sure it's not either an array or null
-      expect(typeof index.invertedIndexObject === 'object' && 
-        !Array.isArray(index.invertedIndexObject) && 
+      expect(typeof index.invertedIndexObject === 'object' && !Array.isArray(index.invertedIndexObject) && 
         index.invertedIndexObject !== null).toBeTruthy();
     });
 
-    it('verifies that the index does have an empty object', () => {
+    it('verifies that the index does not have an empty object', () => {
       expect(Object.keys(index.invertedIndexObject).length).not.toBe(0);
     });
 
@@ -45,27 +44,21 @@ describe('Index',() => {
     });
 
     it('returns -no match has been made- for search terms not found', () => {
-      expect(index.searchIndex('appropriate'))
-      .toBe('No match has been made');
-      expect(index.searchIndex('I am not there'))
-      .toBe('No match has been made');
+      expect(index.searchIndex('appropriate')).toBe('No match has been made');
+      expect(index.searchIndex('I am not there')).toBe('No match has been made');
     });
 
     it('throws an error when a non string or non array type term has been searched', () => {
-      expect(index.searchIndex(true))
-      .toBe('Search term type invalid: not string or array.');
-      expect(index.searchIndex(900))
-      .toBe('Search term type invalid: not string or array.');
+      expect(index.searchIndex(true)).toBe('Search term type invalid: not string or array.');
+      expect(index.searchIndex(900)).toBe('Search term type invalid: not string or array.');
     });
 
     it('can parse an array passed into the searchIndex ', () => {
-      expect(index.searchIndex(['Testing','again']))
-      .toEqual({ testing: [[0,0], [1,0]], again: [[1,2]] });
+      expect(index.searchIndex(['Testing','again'])).toEqual({ testing: [[0,0], [1,0]], again: [[1,2]] });
     });
 
     it('supports phrase searching', () => {
-      expect(index.searchIndex('Test again'))
-      .toBe('Test again found in document 1');
+      expect(index.searchIndex('Test again')).toBe('Test again found in document 1');
     });
 
   });
