@@ -4,38 +4,47 @@ class Index {
   // Method to create an inverted-index of the documents
   createIndex(filePath) {
     var self = this;
-    this.invertedIndexObject = {};
 
     // Fetch the file and resolve the promise as a JSON file
     return fetch(filePath).then(function(response) {
-        return response.json();
+        if (response.status >= 200 && response.status < 300) {
+          return response.json();
+        } else {
+          var error = new Error(response.statusText);
+          throw error;
+        }
       })
       .then(function(finallySomeData) {
         self.books = finallySomeData;
-        populateIndex();
+        self.populateIndex(finallySomeData);
+      })
+      .catch(function(error) {
+        throw error;
       });
+  }
 
-    function populateIndex() {
-      self.books.forEach((book, docIndex) => {
+  populateIndex(bookData) {
+    var self = this;
+    this.invertedIndexObject = {};
+    bookData.forEach((book, docIndex) => {
 
-        /* For each document, turn to string, lowercase, remove special 
-         * characters,
-         * trim beginning of line spaces and split into individual words.
-         */
-        var indexArray = JSON.stringify(book)
-          .toLowerCase().replace(/\W+/g, ' ').trim().split(' ');
+      /* For each document, turn to string, lowercase, remove special 
+       * characters,
+       * trim beginning of line spaces and split into individual words.
+       */
+      var indexArray = JSON.stringify(book)
+        .toLowerCase().replace(/\W+/g, ' ').trim().split(' ');
 
-        indexArray.forEach((word, wordIndex) => {
-          if (word in self.invertedIndexObject) {
-            self.invertedIndexObject[word].push([docIndex, wordIndex]);
-          } else {
-            self.invertedIndexObject[word] = [
-              [docIndex, wordIndex]
-            ];
-          }
-        });
+      indexArray.forEach((word, wordIndex) => {
+        if (word in self.invertedIndexObject) {
+          self.invertedIndexObject[word].push([docIndex, wordIndex]);
+        } else {
+          self.invertedIndexObject[word] = [
+            [docIndex, wordIndex]
+          ];
+        }
       });
-    }
+    });
   }
 
   // Method to return inverted-index from createIndex method
@@ -46,57 +55,63 @@ class Index {
   // Method to search the index for a term
   searchIndex(term) {
     try {
-
-      // Check if the term provided is a phrase/sentence: 
-      if (typeof term === 'string' && term.match(/\s+/)) {
-
-        var result = 'No match has been made';
-
-        this.books.forEach((book, docIndex) => {
-          var phraseString = JSON.stringify(book)
-            .toLowerCase().replace(/\W+/g, ' ').trim();
-
-          var testRegex = new RegExp(term, 'gi');
-
-          if (testRegex.test(phraseString) === true) {
-            result = term + ' found in document ' + docIndex;
-          }
-        });
-
-        return result;
-
-        // Check if the term is a string
-      } else if (typeof term === 'string') {
-        term = term.toLowerCase().replace(/\W+/g, '');
-        if (!(term in this.invertedIndexObject)) {
-          return 'No match has been made';
-        }
-
-        // Return the value under the 'term' property in the inverted-index
-        return this.invertedIndexObject[term];
-
-        // Check if term is an array
-
-      } else if (Array.isArray(term)) {
-        this.termArrayObject = {};
-
-        term.map(word => {
-          word = word.toLowerCase();
-          if (!(word in this.invertedIndexObject)) {
-            this.termArrayObject[word] = 'No match has been made';
-
-          } else {
-            this.termArrayObject[word] = this.invertedIndexObject[word];
-          }
-        });
-
-        return this.termArrayObject;
-      } else {
-        throw 'Search term type invalid: not string or array.';
+      if (typeof term === 'string') {
+        return this.veifyTermIsString(term);
       }
+      if (Array.isArray(term)) {
+        return this.verifyTermIsArray(term);
+      }
+      throw 'Search term type invalid: not string or array.';
+
     } catch (error) {
       return error;
     }
+  }
+
+  verifyTermIsArray(term) {
+    this.termArrayObject = {};
+    term.map(word => {
+      word = word.toLowerCase();
+      if (!(word in this.invertedIndexObject)) {
+        this.termArrayObject[word] = 'No match has been made';
+      } else {
+        this.termArrayObject[word] = this.invertedIndexObject[word];
+      }
+    });
+    return this.termArrayObject;
+  }
+
+  veifyTermIsString(term) {
+    if (term.match(/\s+/)) {
+      return this.verifyTermIsPhrase(term);
+
+    } else {
+      term = term.toLowerCase().replace(/\W+/g, '');
+      if (!(term in this.invertedIndexObject)) {
+        return 'No match has been made';
+      } else {
+        return this.invertedIndexObject[term];
+      }
+    }
+
+  }
+  
+  verifyTermIsPhrase(term) {
+    var self = this;
+      var result = 'No match has been made';
+
+      self.books.forEach((book, docIndex) => {
+        var phraseString = JSON.stringify(book)
+          .toLowerCase().replace(/\W+/g, ' ').trim();
+
+        var testRegex = new RegExp(term, 'gi');
+
+        if (testRegex.test(phraseString) === true) {
+          result = term + ' found in document ' + docIndex;
+        }
+      });
+      return result;
+
   }
 
   // Method to get the frequency of a term in the inverted-index
@@ -119,3 +134,29 @@ class Index {
     }
   }
 }
+
+var _index = new Index();
+_index.createIndex('/jasmine/books.json').then(function() {
+  console.log(_index.getIndex());
+
+  // Search for these 'terms'
+  console.log(_index.searchIndex('alice'));
+  console.log(_index.searchIndex('and'));
+  console.log(_index.searchIndex('rudyard'));
+  console.log(_index.searchIndex('astronomy'));
+  console.log(_index.searchIndex('wonderland'));
+
+  //What about passing an array?
+  console.log(_index.searchIndex(['Alice', 'Lord', 'Author', 'Tolkien']));
+
+  // Will it throw an invalid type error for non-string type entries?
+  console.log(_index.searchIndex(090));
+  console.log(_index.searchIndex(true));
+
+  // Get the frequency of these terms
+  console.log(_index.getFrequency('lord'));
+  console.log(_index.getFrequency('alice'));
+  console.log(_index.getFrequency('ring', 1));
+  console.log(_index.getFrequency('inappropriate'));
+
+});
