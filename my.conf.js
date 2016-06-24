@@ -2,7 +2,7 @@
 // Generated on Fri Jun 24 2016 18:22:12 GMT+0300 (EAT)
 
 module.exports = function(config) {
-  var cfg = ({
+  config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -75,11 +75,5 @@ module.exports = function(config) {
     concurrency: Infinity
   })
 
-  if (process.env.TRAVIS) {
-    cfg.browsers = ['Chrome'];
-
-  }
-
-  config.set(cfg);
-
+  
 }
