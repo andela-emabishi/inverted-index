@@ -1,0 +1,33 @@
+{
+  "name": "inverted-index",
+  "version": "1.0.0",
+  "description": "'Develop an inverted index object that takes a JSON array of text objects and creates an index from the array. The index allows a user to search for text blocks in the array that contain a specified collection of words.'",
+  "main": "index.js",
+  "scripts": {
+    "test": "getIndex"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-emabishi/inverted-index.git"
+  },
+  "author": "Elizabeth Mabishi",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/andela-emabishi/inverted-index/issues"
+  },
+  "homepage": "https://github.com/andela-emabishi/inverted-index#readme",
+  "dependencies": {
+    "node": "^4.4.5"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.0.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-requirejs": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0",
+    "requirejs": "^2.2.0"
+  }
+}
