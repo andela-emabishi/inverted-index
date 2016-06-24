@@ -2,70 +2,82 @@
 // Generated on Fri Jun 24 2016 18:22:12 GMT+0300 (EAT)
 
 module.exports = function(config) {
-    var cfg = {
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+  var cfg = ({
 
-        // list of files / patterns to load in the browser
-        files: [
-            'jasmine/src/inverted-index.js',
-            'jasmine/spec/inverted-index-spec.js'
-        ],
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: '',
 
 
-        // list of files to exclude
-        exclude: [
-        ],
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
 
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-        },
+    // list of files / patterns to load in the browser
+    files: [
+      '/jasmine/spec/inverted-index-spec.js',
+      '/jasmine/src/inverted-index.js'
+    ],
 
 
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+    // list of files to exclude
+    exclude: [
+    ],
 
 
-        // web server port
-        port: 9876,
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+    },
 
 
-        // enable / disable colors in the output (reporters and logs)
-        colors: true,
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress'],
 
 
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
+    // web server port
+    port: 9876,
 
 
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: false,
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
 
 
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome', 'ChromeCanary'],
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
 
-        customLaunchers: {
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: false,
+
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['Chrome', 'Firefox', 'ChromeCanary'],
+
+    customLaunchers: {
             Chrome_travis_ci: {
                 base: 'Chrome',
                 flags: ['--no-sandbox']
             }
         },
 
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false
-    };
 
-    if (process.env.TRAVIS) {
-        cfg.browsers = ['Chrome_travis_ci'];
-    }
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
 
-    config.set(cfg);
-};
+    // Concurrency level
+    // how many browser should be started simultaneous
+    concurrency: Infinity
+  })
+
+  if (process.env.TRAVIS) {
+    cfg.browsers = ['Chrome_travis_ci'];
+
+  }
+
+}
