@@ -22,15 +22,14 @@
   "homepage": "https://github.com/andela-emabishi/inverted-index#readme",
   "devDependencies": {
     "coveralls": "^2.11.9",
+    "istanbul": "^0.4.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.0.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.0.0",
     "karma-firefox-launcher": "^1.0.0",
-    "karma-fixture": "^0.2.6",
-    "karma-html2js-preprocessor": "^1.0.0",
     "karma-jasmine": "^1.0.2",
-    "karma-json-fixtures-preprocessor": "0.0.6",
-    "phantomjs": "^2.1.7"
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.7"
   }
 }
