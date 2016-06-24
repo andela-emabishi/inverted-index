@@ -2,10 +2,6 @@
   "name": "inverted-index",
   "version": "1.0.0",
   "description": "Inverted-index to enhance searches",
-  "main": "index.js",
-  "scripts": {
-    "test": "index"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andela-emabishi/inverted-index.git"
@@ -29,6 +25,10 @@
     "karma": "^1.0.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-firefox-launcher": "^1.0.0",
-    "karma-jasmine": "^1.0.2"
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-json-fixtures-preprocessor": "0.0.6",
+    "phantomjs": "^2.1.7"
   }
 }
