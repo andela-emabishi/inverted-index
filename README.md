@@ -2,6 +2,8 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/eac2940021d2465e99f296cbdbad182a)](https://www.codacy.com/app/elizabeth-wakio/inverted-index?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andela-emabishi/inverted-index&amp;utm_campaign=Badge_Grade)
 
+https://travis-ci.org/andela-emabishi/inverted-index.svg?branch=master
+
 ## Description
 Develop an [inverted index] (https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up) object that takes a JSON array of text objects and creates an index from the array. The index allows a user to search for text blocks in the array that contain a specified collection of words.
 
