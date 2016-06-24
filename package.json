@@ -1,0 +1,33 @@
+{
+  "name": "inverted-index",
+  "version": "1.0.0",
+  "description": "Inverted-index to enhance searches",
+  "main": "index.js",
+  "scripts": {
+    "test": "index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-emabishi/inverted-index.git"
+  },
+  "keywords": [
+    "testing",
+    "karma",
+    "jasmine",
+    "travis",
+    "node"
+  ],
+  "author": "Elizabeth Mabishi <frankiemabishi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela-emabishi/inverted-index/issues"
+  },
+  "homepage": "https://github.com/andela-emabishi/inverted-index#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.0.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2"
+  }
+}
