@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/andela-emabishi/inverted-index#readme",
   "dependencies": {
-    "node": "^4.4.5"
+    "node": "4.4.5"
   },
   "devDependencies": {
     "jasmine": "^2.4.1",
