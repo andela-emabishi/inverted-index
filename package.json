@@ -15,7 +15,8 @@
     "karma",
     "jasmine",
     "travis",
-    "node"
+    "node",
+    "tests"
   ],
   "author": "Elizabeth Mabishi <frankiemabishi@gmail.com>",
   "license": "MIT",
