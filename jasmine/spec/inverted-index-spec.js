@@ -15,12 +15,12 @@ describe('Expose fetch errors', () => {
 
 describe('Index test suite', () => {
 //Run createIndex method and make sure it completes before any test is run
-beforeEach(done => {
-  index.createIndex('/jasmine/spec/test.json').then(() => {
-    done();
-  });
+  beforeEach(done => {
+    index.createIndex('/jasmine/spec/test.json').then(() => {
+      done();
+    });
 
-});
+   });
 
   describe('Read book data', () => {
     it('should read the JSON file and assert its not empty', () => {
@@ -31,11 +31,7 @@ beforeEach(done => {
 
   describe('Populate index', () => {
     it('checks if index has been created once the JSON file has been read', () => {
-
-      // typeof object,array and null === 'object'
-      // Make sure it's not either an array or null
-      expect(typeof index.invertedIndexObject === 'object' && !Array.isArray(index.invertedIndexObject) && 
-        index.invertedIndexObject !== null).toBeTruthy();
+      expect(index.invertedIndexObject).toEqual(jasmine.any(Object));
     });
 
     it('verifies that the index does not have an empty object', () => {
