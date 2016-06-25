@@ -63,6 +63,10 @@ module.exports = function(config) {
         flags: ['--disable-web-security']
       }
     },
+    phantomjsLauncher: {
+      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+      exitOnResourceError: true
+    },
 
 
     // Continuous Integration mode
