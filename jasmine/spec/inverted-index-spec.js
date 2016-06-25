@@ -14,7 +14,8 @@ describe('Expose fetch errors', () => {
 });
 
 describe('Index test suite', () => {
-//Run createIndex method and make sure it completes before any test is run
+
+// Run createIndex method and make sure it completes before any test is run
   beforeEach(done => {
     index.createIndex('/jasmine/spec/test.json').then(() => {
       done();
