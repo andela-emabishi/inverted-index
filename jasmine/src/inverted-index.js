@@ -5,7 +5,9 @@ class Index {
   createIndex(filePath) {
     var self = this;
 
-    // Fetch the file and resolve the promise as a JSON file
+    /* Fetch the file and resolve the promise as a JSON file
+    * Throw an error if anything goes wrong with the fetch
+    */
     return fetch(filePath).then(function(response) {
         if (response.status >= 200 && response.status < 300) {
           return response.json();
@@ -74,6 +76,7 @@ class Index {
       word = word.toLowerCase();
       if (!(word in this.invertedIndexObject)) {
         this.termArrayObject[word] = 'No match has been made';
+
       } else {
         this.termArrayObject[word] = this.invertedIndexObject[word];
       }
@@ -89,6 +92,7 @@ class Index {
       term = term.toLowerCase().replace(/\W+/g, '');
       if (!(term in this.invertedIndexObject)) {
         return 'No match has been made';
+
       } else {
         return this.invertedIndexObject[term];
       }
@@ -116,6 +120,7 @@ class Index {
   getFrequency(term, docReference) {
     if (!(term in this.invertedIndexObject)) {
       return 'Term not found';
+      
     } else if (docReference === undefined) {
       return (this.invertedIndexObject[term]).length;
 
