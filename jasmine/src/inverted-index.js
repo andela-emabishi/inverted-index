@@ -30,7 +30,7 @@ class Index {
     this.invertedIndexObject = {};
     bookData.forEach((book, docIndex) => {
 
-      /* For each document, turn to string, lowercase, remove special 
+      /* For each document, turn to string, lowercase, remove special
        * characters,
        * trim beginning of line spaces and split into individual words.
        */
@@ -120,7 +120,7 @@ class Index {
   getFrequency(term, docReference) {
     if (!(term in this.invertedIndexObject)) {
       return 'Term not found';
-      
+
     } else if (docReference === undefined) {
       return (this.invertedIndexObject[term]).length;
 
