@@ -12,7 +12,8 @@
     "jasmine",
     "travis",
     "node",
-    "tests"
+    "tests",
+    "fetch"
   ],
   "author": "Elizabeth Mabishi <frankiemabishi@gmail.com>",
   "license": "MIT",
