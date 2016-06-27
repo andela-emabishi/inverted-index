@@ -16,7 +16,7 @@ module.exports = function(config) {
     files: [
     'jasmine/*.json',
     'jasmine/spec/*.js',
-    'jasmine/src/*.js'
+    'src/*.js'
     ],
 
     // list of files to exclude
