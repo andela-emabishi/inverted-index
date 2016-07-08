@@ -153,7 +153,7 @@ To run the tests:
 * Clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
 * Install [node.js v6.2.2] (https://nodejs.org/en/) on your machine.
 * Start the server at the root project folder by running the command ` node server.js` into your terminal program.
-* Enter the address i.e. `http://127.0.0.1:8080` or `localhost:8080` as a url into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder or use `http://127.0.0.1:8080/jasmine/SpecRunner.html` OR `localhost:8080/jasmine/SpecRunner` to run.
+* Enter the address i.e. `http://127.0.0.1:8080` or `localhost:8080` as a url into a browser of your choice. From the browser use `http://127.0.0.1:8080/jasmine/SpecRunner.html` or `localhost:8080/jasmine/SpecRunner` to navigate to the test runner.
 * To run the tests, through karma in a terminal environment, run the command `npm test`.
 
 ### Coverage information
