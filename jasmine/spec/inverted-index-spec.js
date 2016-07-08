@@ -1,10 +1,11 @@
 // Instanciate new Index
 'use strict';
+const listenToPort = 'http://localhost:8080';
 var index = new Index();
 
 describe('Expose fetch errors', () => {
   it('should expose an error if something went wrong with fetching the JSON', function(done) {
-    index.createIndex('/jasmine/spec/tester.json').catch((error) => {
+    index.createIndex(listenToPort + '/jasmine/spec/tester.json').catch((error) => {
       expect(error).toEqual(jasmine.any(Error));
       done();
     });
@@ -17,7 +18,7 @@ describe('Index test suite', () => {
 
 // Run createIndex method and make sure it completes before any test is run
   beforeEach(done => {
-    index.createIndex('/jasmine/spec/test.json').then(() => {
+    index.createIndex(listenToPort + '/jasmine/spec/test.json').then(() => {
       done();
     });
 
