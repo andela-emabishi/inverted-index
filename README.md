@@ -1,6 +1,6 @@
 # Andela Javascript Checkpoint 1: inverted-index
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eac2940021d2465e99f296cbdbad182a)](https://www.codacy.com/app/elizabeth-wakio/inverted-index?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andela-emabishi/inverted-index&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/andela-emabishi/inverted-index.svg?branch=master)](https://travis-ci.org/andela-emabishi/inverted-index) 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eac2940021d2465e99f296cbdbad182a)](https://www.codacy.com/app/elizabeth-wakio/inverted-index?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andela-emabishi/inverted-index&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/andela-emabishi/inverted-index.svg?branch=master)](https://travis-ci.org/andela-emabishi/inverted-index) [![Coverage Status](https://coveralls.io/repos/github/andela-emabishi/inverted-index/badge.svg?branch=master)](https://coveralls.io/github/andela-emabishi/inverted-index?branch=master)
 
 ## Description
 Develop an [inverted index] (https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up) object that takes a JSON array of text objects and creates an index from the array. The index allows a user to search for text blocks in the array that contain a specified collection of words.
@@ -55,7 +55,7 @@ _index.createIndex('/jasmine/books.json').then(function() {
 
   //What about passing an array?
   console.log(_index.searchIndex(['Alice','Lord','Author','Tolkien']));
-  
+
   // Will it throw an invalid type error for non-string type entries?
   console.log(_index.searchIndex(090));
   console.log(_index.searchIndex(true));
@@ -81,12 +81,12 @@ _index.createIndex('/jasmine/books.json').then(function() {
 	   snipped .......
    }
 ```
-  
+
 
 *The result of:*
 ```javaScript
 console.log(index.searchIndex('and'));
-``` 
+```
 *would be:*
 
 ```javaScript
@@ -126,7 +126,7 @@ No match has been made
 ```javaScript
 console.log(_index.getFrequency('alice'));
 ```
-*would be:* 
+*would be:*
 ```javaScript
 2
 ```
@@ -134,7 +134,7 @@ console.log(_index.getFrequency('alice'));
 ```javaScript
 console.log(_index.getFrequency('ring', 1));
 ```
-*would be:* 
+*would be:*
 ```javaScript
 2
 ```
@@ -150,7 +150,7 @@ Term not found in file
 
 
 ### Dependencies
-To run the tests: 
+To run the tests:
 * Clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
 * Install [node.js v6.2.2] (https://nodejs.org/en/) on your machine.
 * Install server dependencies by running the command ` npm install http-server -g`. More on this [here] (https://www.npmjs.com/package/http-server)
