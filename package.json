@@ -2,6 +2,9 @@
   "name": "inverted-index",
   "version": "1.0.0",
   "description": "Inverted-index to enhance searches",
+  "scripts": {
+    "test": "karma start my.conf.js --single-run"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andela-emabishi/inverted-index.git"
@@ -22,13 +25,13 @@
   },
   "homepage": "https://github.com/andela-emabishi/inverted-index#readme",
   "devDependencies": {
+    "istanbul": "^0.4.4",
     "jasmine-core": "^2.4.1",
     "karma": "^1.0.0",
-    "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.0.0",
+    "karma-coveralls": "^1.1.2",
     "karma-firefox-launcher": "^1.0.0",
-    "karma-jasmine": "^1.0.2",
-    "phantomjs-prebuilt": "^2.1.7"
+    "karma-jasmine": "^1.0.2"
   },
   "dependencies": {
     "node-static": "^0.7.7"
