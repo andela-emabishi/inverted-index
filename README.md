@@ -148,14 +148,16 @@ console.log(_index.getFrequency('inappropriate'));
 Term not found in file
 ```
 
-
-### Dependencies
+### Running Tests
 To run the tests:
 * Clone this repository with the command: `git clone https://github.com/andela-emabishi/inverted-index.git`
 * Install [node.js v6.2.2] (https://nodejs.org/en/) on your machine.
-* Install server dependencies by running the command ` npm install http-server -g`. More on this [here] (https://www.npmjs.com/package/http-server)
-* Start a server at the root inverted-index folder by typing `http-server` into your terminal program.
-* Copy the address given i.e. `http://127.0.0.1:8080` into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder or use `http://127.0.0.1:8080/jasmine/SpecRunner.html` to run.
+* Start the server at the root project folder by running the command ` node server.js` into your terminal program.
+* Enter the address i.e. `http://127.0.0.1:8080` or `localhost:8080` as a url into a browser of your choice. From the browser, click into the jasmine then SpecRunner folder or use `http://127.0.0.1:8080/jasmine/SpecRunner.html` OR `localhost:8080/jasmine/SpecRunner` to run.
+* To run the tests, through karma in a terminal environment, run the command `npm test`.
+
+### Coverage information
+Once the command `npm test` has been run at the root project folder, view coverage information at the address `coverage/Firefox 47.0.0 (Mac OS X 10.11.0)/lcov-report/index.html`
 
 ### License
 This project was created under a GNU Public License. See [here] (https://github.com/andela-emabishi/inverted-index/blob/dev/LICENSE) for more information.
