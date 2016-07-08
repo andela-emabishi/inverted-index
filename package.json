@@ -29,5 +29,8 @@
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "phantomjs-prebuilt": "^2.1.7"
+  },
+  "dependencies": {
+    "node-static": "^0.7.7"
   }
 }
