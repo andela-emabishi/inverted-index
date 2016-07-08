@@ -147,6 +147,8 @@ console.log(_index.getFrequency('inappropriate'));
 ```javaScript
 Term not found in file
 ```
+### Dependencies
+IMPORTANT: Run the command `npm install` to install the project dependencies.
 
 ### Running Tests
 To run the tests:
