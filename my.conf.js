@@ -14,9 +14,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-    'jasmine/*.json',
-    'jasmine/spec/*.js',
-    'src/*.js'
+    'src/inverted-index.js',
+    'jasmine/spec/inverted-index-spec.js',
+    'jasmine/spec/test.json',
+    'jasmine/books.json',
+    'jasmine/spec/tester.json'
+
     ],
 
     // list of files to exclude
@@ -54,7 +57,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS', 'Firefox','Chrome'],
+    browsers: ['Firefox'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
